@@ -13,18 +13,20 @@ class Solution
     //Function to sort the array using bubble sort algorithm.
 	public static void bubbleSort(int arr[], int n)
     {
-        for( int i=0;i<n;i++)
+        if(n==0)
         {
-            for( int j=i+1;j<n;j++)
+            return;
+        }
+        for( int i=0;i<n-1;i++)
+        {
+            if(arr[i]>arr[i+1])
             {
-                if(arr[i]>arr[j])
-                {
-                    int temp= arr[i];
-                    arr[i]= arr[j];
-                    arr[j]=temp;
-                }
+                int temp= arr[i];
+                arr[i]= arr[i+1];
+                arr[i+1]= temp;
             }
         }
+        bubbleSort(arr,n-1);
         //code here
     }
 }
